@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГАЗОБЕТОН-СТРОЙ — Каталог и Корзина</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ЕДИНЫЙ ШРИФТ ДЛЯ ВСЕГО САЙТА */
+        body, input, button, span, label, h2, h3, a {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+        }
+
+        /* ДВУХКОЛОНОЧНАЯ СЕТКА */
+        .main-layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .left-column { 
+            flex: 1; 
+            min-width: 300px; 
+        }
+        
+        .right-column { 
+            width: 380px; 
+            min-width: 300px; 
+        }
+
+        /* ОДИН СТИЛЬ ДЛЯ ВСЕХ ЗАГОЛОВКОВ-ПЛАШЕК */
+        .unified-section-title {
+            background-color: #cbd5e1 !important;
+            color: #1e293b !important;
+            font-size: 16px !important;
+            font-weight: bold !important;
+            text-transform: uppercase !important;
+            padding: 10px 20px !important;
+            border-radius: 20px !important;
+            display: inline-block !important;
+            margin-top: 0 !important;
+            margin-bottom: 20px !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        /* АКЦЕНТНЫЕ КНОПКИ ДЕЙСТВИЯ (ФИОЛЕТОВЫЕ) */
+        .btn-action-purple {
+            background-color: #8b5cf6 !important;
+            color: #ffffff !important;
+            font-weight: bold !important;
+            border: none !important;
+            padding: 10px 22px !important;
+            border-radius: 6px !important;
+            cursor: pointer !important;
+            text-transform: uppercase !important;
+            transition: background 0.2s;
+        }
+        .btn-action-purple:hover {
+            background-color: #7c3aed !important;
+        }
+
+        /* СЕТКА КАТАЛОГА: ФОТО СБОКУ */
+        .product-item {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            gap: 15px;
+            padding: 15px;
+            background: #fdfdfd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        .product-info { 
+            flex: 1; 
+        }
+        .product-visual { 
+            width: 140px; 
+            text-align: center; 
+        }
+        .product-img { 
+            max-width: 120px; 
+            height: auto; 
+            object-fit: contain; 
+        }
+
+        /* СТИЛИ ДЛЯ ИНТЕРАКТИВНОГО СЧЕТЧИКА В КОРЗИНЕ */
+        .quantity-counter {
+            display: flex;
+            align-items: center;
+            background: #f1f5f9;
+            border-radius: 6px;
+            padding: 2px;
+            gap: 10px;
+        }
+        .counter-btn {
+            background: #cbd5e1;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .counter-value {
+            font-weight: bold;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        max-width: 768px {
+            .main-layout { flex-direction: column; align-items: stretch; }
+            .right-column { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo" style="cursor:pointer;" onclick="location.href='index.html'">ГАЗОБЕТОН-СТРОЙ</div>
+            <nav class="nav-menu">
+                <a href="#catalog">каталог</a>
+                <a href="index.html#calc">калькулятор</a>
+                <a
+
+
+f="index.html#contacts">контакты</a>
+            </nav>
+            <div class="header-contacts">
+                <div class="phone">+7 999 432 11 00</div>
+                <div class="address">г. Пермь, ул. Лесная, д. 100</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-layout">
+        
+        <div class="left-column">
+            <section id="catalog" class="catalog-section">
+                <h2 class="unified-section-title">КАТАЛОГ ТОВАРОВ</h2>
+                
+                <div class="products-list">
+                    <article class="product-item">
+                        <div class="product-info">
+                            <h3>Газобетонный блок D400</h3>
+                            <div class="product-price">
+                                <span class="price-cub">4 500 ₽/м³</span> 
+
+                                <span class="price-pcs">150 ₽/шт.</span>
+                            </div>
+                            <button type="button" class="btn-action-purple" style="margin-top: 10px;" onclick="addToCart('Газобетонный блок D400', 150, 'image2.jpg', '4 500 ₽/м³')">В корзину</button>
+                        </div>
+                        <div class="product-visual">
+                            <img src="image2.jpg" alt="Блок D400" class="product-img">
+                            <p class="product-size" style="font-size: 11px; margin: 4px 0 0 0; color: #666;">600×100×300 мм</p>
+                            <p class="product-stock" style="font-size: 11px; margin: 2px 0 0 0; color: #999;">остаток: 450 куб. м.</p>
+                        </div>
+                    </article>
+
+                    <article class="product-item">
+                        <div class="product-info">
+                            <h3>Газобетонный блок D500</h3>
+                            <div class="product-price">
+                                <span class="price-cub">5 550 ₽/м³</span> 
+
+                                <span class="price-pcs">185 ₽/шт.</span>
+                            </div>
+                            <button type="button" class="btn-action-purple" style="margin-top: 10px;" onclick="addToCart('Газобетонный блок D500', 185, 'image3.jpg', '5 550 ₽/м³')">В корзину</button>
+                        </div>
+                        <div class="product-visual">
+                            <img src="image3.jpg" alt="Блок D500" class="product-img">
+                            <p class="product-size" style="font-size: 11px; margin: 4px 0 0 0; color: #666;">600×200×300 мм</p>
+                            <p class="product-stock" style="font-size: 11px; margin: 2px 0 0 0; color: #999;">остаток: 550 куб. м.</p>
+                        </div>
+                    </article>
+
+                    <article class="product-item">
+                        <div class="product-info">
+                            <h3>Газобетонный блок D600</h3>
+                            <div class="product-price">
+                                <span class="price-cub">6 600 ₽/м³</span> 
+
+                                <span class="price-pcs">220 ₽/шт.</span>
+                            </div>
+                            <button type="button" class="btn-action-purple" style="margin-top: 10px;" onclick="addToCart('Газобетонный блок D600', 220, 'image4.jpg', '6 600 ₽/м³')">В корзину</button>
+                        </div>
+                        <div class="product-visual">
+                            <img src="image4.jpg" alt="Блок D600" class="product-img">
+                            <p class="product-size" style="font-size: 11px; margin: 4px 0 0 0; color: #666;">598×300×198 мм</p>
+                            <p class="product-stock" style="font-size: 11px; margin: 2px 0 0 0; color: #999;">остаток: 250 куб. м.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="catalog-footer" style="margin-top: 20px;">
+                    <button type="button" class="btn-action-purple">ПОКАЗАТЬ ВСЕ</button>
+                </div>
+            </section>
+        </div>
+
+        <di
+
+
+v class="right-column">
+            <section class="cart-section">
+                <h2 class="unified-section-title">КОРЗИНА</h2>
+                
+                <div class="cart-product-card" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div class="cart-product-details" style="flex: 1;">
+                        <h3 id="cartTitle">Корзина пуста</h3>
+                        <p id="cartCubPrice" style="margin: 2px 0; font-size: 14px; color: #333;">0 ₽/м³</p>
+                        <p id="cartSinglePrice" style="color: #777; margin-bottom: 8px; font-size: 13px;">0 ₽/шт.</p>
+                        
+                        <div class="cart-controls-row" style="display: flex; gap: 10px; align-items: center;">
+                            <div class="quantity-counter">
+                                <button class="counter-btn" onclick="changeQuantity(-1)">-</button>
+                                <span class="counter-value" id="cartQty">0</span>
+                                <button class="counter-btn" onclick="changeQuantity(1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-product-media" style="width: 100px; text-align: center;">
+                        <img id="cartImg" src="image2.jpg" alt="Выбранный блок" class="product-img" style="max-width: 90px; max-height: 90px; object-fit: contain;">
+                    </div>
+                </div>
+
+                <div class="checkout-summary-box" style="margin-top: 20px; background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <div class="summary-line" style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #555;">
+                        <span id="summaryCountText">Товары (0)</span>
+                        <span id="summaryOldPrice">0 ₽</span>
+                    </div>
+                    <div class="summary-line total-line" style="display: flex; justify-content: space-between; font-size: 18px; margin-top: 15px; border-top: 1px dashed #cbd5e1; padding-top: 15px;">
+                        <strong>Итого</strong>
+                        <strong id="summaryTotal" style="color: #8b5cf6;">0 ₽</strong>
+                    </div>
+                    <button class="btn-action-purple" style="width: 100%; margin-top: 20px; padding: 12px;" onclick="alert('Заказ успешно отправлен в обработку!')">Перейти к оформлению</button>
+                    <p class="checkout-disclaimer" style="font-size: 11px; color: #999; margin-top: 10px; text-align: center;">Дата и стоимость доставки определяются при оформлении заказа</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer" style="margin-top: 50px;">
+        <div class="footer-left-text">
+            Круглосуточная клиентская поддержка: +7 999 432 11 00 
+
+            Ждем вас по адресу: Пермь, ул. Лесная д.100
+        </div>
+        <div class="footer-right-text">
+            газобетонные блоки напрямую от производителя!
+        </div>
+    </footer>
+
+    <script>
+        let currentPrice = 0;
+        let currentQty = 0;
+
+        // Автоматическая загрузка данных при открытии страницы
+        window.onload = function() {
+            let savedName = localStorage.getItem('cartItemName');
+            let savedPrice = localStorage.getItem('cartItemPrice');
+            let savedQty = localStorage.getItem('cartItemQty');
+            let savedImg = localStorage.getItem('cartItemImg');
+            let savedCubPrice = localStorage.getItem('cartItemCubPrice');
+
+            // Если в памяти есть данные (выбран товар), загружаем его
+            if (savedName && savedPrice) {
+                currentPrice = parseInt(savedPrice);
+                currentQty = parseInt(savedQty) || 15; // По умолчанию ставим 15 шт из макета
+
+                document.getElementById('cartTitle').innerText = savedN
+
+
+ame;
+                document.getElementById('cartCubPrice').innerText = savedCubPrice;
+                document.getElementById('cartSinglePrice').innerText = currentPrice + ' ₽/шт.';
+                document.getElementById('cartQty').innerText = currentQty;
+                document.getElementById('cartImg').src = savedImg;
+
+                updateTotal();
+            }
+        }
+
+        // Изменение количества по клику на кнопки + и -
+        function changeQuantity(amount) {
+            if (currentQty === 0) return; // Если корзина пуста, кнопки не активны
+
+            currentQty += amount;
+            if (currentQty < 1) currentQty = 1; // Защита: нельзя заказать меньше 1 шт
+
+            document.getElementById('cartQty').innerText = currentQty;
+            localStorage.setItem('cartItemQty', currentQty); // Перезаписываем новое количество
+            
+            updateTotal();
+        }
+
+        // Динамический пересчет стоимости
+        function updateTotal() {
+            let total = currentQty * currentPrice;
+            
+            document.getElementById('summaryCountText').innerText = 'Товары (' + currentQty + ')';
+            document.getElementById('summaryOldPrice').innerText = total.toLocaleString('ru-RU') + ' ₽';
+            document.getElementById('summaryTotal').innerText = total.toLocaleString('ru-RU') + ' ₽';
+        }
+
+        // Добавление товара в корзину при клике из каталога
+        function addToCart(name, pricePerPcs, imgSrc, pricePerCub) {
+            localStorage.setItem('cartItemName', name);
+            localStorage.setItem('cartItemPrice', pricePerPcs);
+            localStorage.setItem('cartItemQty', 15); // Задаем базовое стартовое число
+            localStorage.setItem('cartItemImg', imgSrc);
+            localStorage.setItem('cartItemCubPrice', pricePerCub);
+            
+            // Быстрая перезагрузка, чтобы данные сразу отобразились в правой колонке
+            window.location.reload();
+        }
+    </script>
+</body>
+</html> hre
